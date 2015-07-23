@@ -119,6 +119,7 @@ while(1){
 		}
 	if(x=='e'){															//Increase delay
 		radio_controller_TxRxDisable(RC_BASEADDR, RC_RFA|RC_RFB);		//Turn off TX and RX RFB
+		XIo_Out32(Controls,0x04000000);									//Turn Off LTE, DPD, Training, and Reset
 		dataIn = XIo_In32(Delay);										//Read current delay
 		dataOut = dataIn + 1;											//step by 1
 		XIo_Out32(Delay,dataOut);										//Write to delay
@@ -129,6 +130,7 @@ while(1){
 		}
 	if(x=='c'){															//Decrease delay
 		radio_controller_TxRxDisable(RC_BASEADDR, RC_RFA|RC_RFB);		//Turn off TX and RX RFB
+		XIo_Out32(Controls,0x04000000);									//Turn Off LTE, DPD, Training, and Reset
 		dataIn = XIo_In32(Delay);										//Read current delay
 		dataOut = dataIn - 1;											//step by 1
 		XIo_Out32(Delay,dataOut);										//Write to delay
