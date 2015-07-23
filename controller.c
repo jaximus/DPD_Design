@@ -125,8 +125,9 @@ while(1){
 		XIo_Out32(Delay,dataOut);										//Write to delay
 		dataIn = XIo_In32(Delay);										//Read current delay
 		xil_printf("New Delay: %d  \n \r", dataIn);
-		radio_controller_RxEnable(RC_BASEADDR, RC_RFB);		//Turn on Receiver RFB
-		radio_controller_TxEnable(RC_BASEADDR, RC_RFA);		//Turn on Transmitter RFA
+		radio_controller_RxEnable(RC_BASEADDR, RC_RFB);					//Turn on Receiver RFB
+		radio_controller_TxEnable(RC_BASEADDR, RC_RFA);					//Turn on Transmitter RFA
+		XIo_Out32(Controls,0xF0000000);									//Turn On LTE, DPD, and Training
 		}
 	if(x=='c'){															//Decrease delay
 		radio_controller_TxRxDisable(RC_BASEADDR, RC_RFA|RC_RFB);		//Turn off TX and RX RFB
@@ -136,8 +137,9 @@ while(1){
 		XIo_Out32(Delay,dataOut);										//Write to delay
 		dataIn = XIo_In32(Delay);										//Read current delay
 		xil_printf("New Delay: %d  \n \r", dataIn);
-		radio_controller_RxEnable(RC_BASEADDR, RC_RFB);		//Turn on Receiver RFB
-		radio_controller_TxEnable(RC_BASEADDR, RC_RFA);		//Turn on Transmitter RFA
+		radio_controller_RxEnable(RC_BASEADDR, RC_RFB);					//Turn on Receiver RFB
+		radio_controller_TxEnable(RC_BASEADDR, RC_RFA);					//Turn on Transmitter RFA
+		XIo_Out32(Controls,0xF0000000);									//Turn On LTE, DPD, and Training
 		}
 
 	//Report alpha from training
