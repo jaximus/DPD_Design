@@ -112,7 +112,7 @@ XIo_Out32(Controls,0xF0000000);						//Turn On LTE, DPD, and Training
 while(1){
 	x = XUartLite_RecvByte(STDIN_BASEADDRESS);	//Input from UART
 
-	//Commands to look at and change delay
+	////COMMANDS TO LOOK AT AND CHANGE DELAY////
 	if(x=='d'){									//Read current delay
 		dataIn = XIo_In32(Delay);
 		xil_printf("Current Delay: %d  \n \r", dataIn);
@@ -142,7 +142,7 @@ while(1){
 		XIo_Out32(Controls,0xF0000000);									//Turn On LTE, DPD, and Training
 		}
 
-	//Report alpha from training
+	////REPORT ALL ALPHAS FROM TRAINING////
 	if(x=='l'){
 		int i = 0;
 		for(i = 0;i<Alpha_depth;i=i+4 ){
@@ -151,7 +151,7 @@ while(1){
 			}
 		}
 
-	//Commands for changing alpha manually
+	////COMMANDS FOR CHANGING ALPHA MANUALLY///
 	if(x=='a'){								//Switch to Manual Alpha
 		XIo_Out32(Controls,0x04000000); 	//Turn Off Signal, DPD, learning, and reset
 		XIo_Out32(Controls,0xC8000000);		//Turn On LTE, DPD, and manual alpha
@@ -188,7 +188,7 @@ while(1){
 	}
 }
 }
-// Do NOT modify the code below
+// DO NOT MODIFY THE CODE BELOW
 int w3_node_init() {
 
 	int status;
