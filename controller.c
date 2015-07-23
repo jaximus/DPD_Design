@@ -107,11 +107,17 @@ radio_controller_TxEnable(RC_BASEADDR, RC_RFA);		//Turn on Transmitter RFA
 dataIn = XIo_In32(Delay);							//Read in first delay for sanity check
 xil_printf("first delay: %d  \n \r", dataIn);		//Print to terminal for user to look at
 
-XIo_Out32(Controls,0xF0000000);						//Turn On LTE, DPD, and Training
+XIo_Out32(Controls,0x80000000);						//Turn On LTE signal
 
 while(1){
 	x = XUartLite_RecvByte(STDIN_BASEADDRESS);	//Input from UART
-
+	
+	////TURN TRAINING ON////
+	if(x=='t'){									
+		XIo_Out32(Controls,0x04000000); 		//Turn Off Signal, DPD, learning, and reset
+		XIo_Out32(Controls,0xF0000000);			//Turn On LTE, DPD, and Training
+	}
+	
 	////COMMANDS TO LOOK AT AND CHANGE DELAY////
 	if(x=='d'){									//Read current delay
 		dataIn = XIo_In32(Delay);
