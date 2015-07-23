@@ -116,6 +116,7 @@ while(1){
 	if(x=='t'){									
 		XIo_Out32(Controls,0x04000000); 		//Turn Off Signal, DPD, learning, and reset
 		XIo_Out32(Controls,0xF0000000);			//Turn On LTE, DPD, and Training
+		xil_printf("Training Activated \n \r");
 	}
 	
 	////COMMANDS TO LOOK AT AND CHANGE DELAY////
