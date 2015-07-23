@@ -1,2 +1,7 @@
 # DPD_CCode
-The C code used in the SDK for the FPGA Design
+This repository contains the C code used in the Xilinx SDK for our DPD FPGA Design.
+
+#User guide
+It starts by broadcasting the prestored LTE Signal.
+Use the unmodifided LTE signal to take note of the IM# magnitudes.
+Push "t" in the terminal to start traininig. 
