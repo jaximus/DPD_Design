@@ -117,18 +117,20 @@ while(1){
 		dataIn = XIo_In32(Delay);
 		xil_printf("Current Delay: %d  \n \r", dataIn);
 		}
-	if(x=='e'){								//Increase delay
-		dataIn = XIo_In32(Delay);			//Read current delay
-		dataOut = dataIn + 1;				//step by 1
-		XIo_Out32(Delay,dataOut);			//Write to delay
-		dataIn = XIo_In32(Delay);			//Read current delay
+	if(x=='e'){															//Increase delay
+		radio_controller_TxRxDisable(RC_BASEADDR, RC_RFA|RC_RFB);		//Turn off TX and RX RFB
+		dataIn = XIo_In32(Delay);										//Read current delay
+		dataOut = dataIn + 1;											//step by 1
+		XIo_Out32(Delay,dataOut);										//Write to delay
+		dataIn = XIo_In32(Delay);										//Read current delay
 		xil_printf("New Delay: %d  \n \r", dataIn);
 		}
-	if(x=='c'){								//Decrease delay
-		dataIn = XIo_In32(Delay);			//Read current delay
-		dataOut = dataIn - 1;				//step by 1
-		XIo_Out32(Delay,dataOut);			//Write to delay
-		dataIn = XIo_In32(Delay);			//Read current delay
+	if(x=='c'){															//Decrease delay
+		radio_controller_TxRxDisable(RC_BASEADDR, RC_RFA|RC_RFB);		//Turn off TX and RX RFB
+		dataIn = XIo_In32(Delay);										//Read current delay
+		dataOut = dataIn - 1;											//step by 1
+		XIo_Out32(Delay,dataOut);										//Write to delay
+		dataIn = XIo_In32(Delay);										//Read current delay
 		xil_printf("New Delay: %d  \n \r", dataIn);
 		}
 
