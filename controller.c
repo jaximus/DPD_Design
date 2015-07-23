@@ -100,7 +100,7 @@ Xuint32 dataOut;									//Variable used to temporarily store data to write to m
 
 XIo_Out32(Delay,43);								//Write the desired value for the PA delay
 
-radio_controller_RxEnable(RC_BASEADDR, RC_RFB);		//Turn on Reciever RFB
+radio_controller_RxEnable(RC_BASEADDR, RC_RFB);		//Turn on Receiver RFB
 radio_controller_TxEnable(RC_BASEADDR, RC_RFA);		//Turn on Transmitter RFA
 
 
@@ -124,7 +124,7 @@ while(1){
 		XIo_Out32(Delay,dataOut);										//Write to delay
 		dataIn = XIo_In32(Delay);										//Read current delay
 		xil_printf("New Delay: %d  \n \r", dataIn);
-		radio_controller_RxEnable(RC_BASEADDR, RC_RFB);		//Turn on Reciever RFB
+		radio_controller_RxEnable(RC_BASEADDR, RC_RFB);		//Turn on Receiver RFB
 		radio_controller_TxEnable(RC_BASEADDR, RC_RFA);		//Turn on Transmitter RFA
 		}
 	if(x=='c'){															//Decrease delay
@@ -134,7 +134,7 @@ while(1){
 		XIo_Out32(Delay,dataOut);										//Write to delay
 		dataIn = XIo_In32(Delay);										//Read current delay
 		xil_printf("New Delay: %d  \n \r", dataIn);
-		radio_controller_RxEnable(RC_BASEADDR, RC_RFB);		//Turn on Reciever RFB
+		radio_controller_RxEnable(RC_BASEADDR, RC_RFB);		//Turn on Receiver RFB
 		radio_controller_TxEnable(RC_BASEADDR, RC_RFA);		//Turn on Transmitter RFA
 		}
 
