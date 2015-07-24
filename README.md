@@ -1,5 +1,5 @@
-# DPD_CCode
-This repository contains the C code used in the Xilinx SDK for our DPD FPGA Design.
+# Digital PreDistortion FPGA Project
+This repository contains the C code and simulink design used for our DPD FPGA Design.
 
 **Users guide**
 - It starts by broadcasting the prestored LTE Signal.
